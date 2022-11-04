@@ -26,7 +26,7 @@ pub fn schedule(action_path: String) -> Result<()> {
         let trigger: ITrigger = triggers.Create(TASK_TRIGGER_DAILY)?;
         let trigger: IDailyTrigger = trigger.cast()?;
 
-        trigger.SetId(&BSTR::from("time_trigger"))?;
+        trigger.SetId(&BSTR::from("daily_trigger"))?;
         trigger.SetStartBoundary(&BSTR::from((Local::now() + chrono::Duration::minutes(1)).format("%Y-%m-%dT%H:%M:%S%:z").to_string()))?;
         trigger.SetEnabled(true as i16)?;
 
